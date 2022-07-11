@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+dependencies:
+  - httpx
+  - loguru=0.6
+  - mlflow=1.27
+  - pandas=1.4
+  - python=3.10

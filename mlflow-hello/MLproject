@@ -1,0 +1,24 @@
+name: Mlflow Hello
+
+conda_env: mlflow_hello_env.yml
+
+entry_points:
+  main:
+  # log the model
+    parameters:
+      model_fp: {type: str, default: "saved_model"}
+      n: {type: int, default: 5}
+    command: python -c "from src.mlflow_hello import log_model; log_model('{model_fp}', {n})"
+  test_saved_model:
+    parameters:
+      model_fp: {type: str, default: "saved_model"}
+      n: {type: int, default: 5}
+    command: python -c "from tests.test_mlflow_hello import test_saved_model; test_saved_model('{model_fp}', {n})"
+  serve:
+    parameters:
+      model_fp: {type: str, default: "saved_model"}
+    command: "mlflow models serve -m {model_fp}"
+  test_api:
+    parameters:
+      api_port: {type: str, default: "5000"}
+    command: python -c "from tests.test_mlflow_hello import test_api; test_api('{api_port}')"
