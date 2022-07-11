@@ -1,2 +1,3 @@
-# python_template
-A minimal Python project template
+# mlflow_template
+
+A minimal Mlflow project template
